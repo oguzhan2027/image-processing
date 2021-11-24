@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+image = cv2.imread('babunn.jpg')
+print(np.exp((-4)))
+blur_filter1=np.ones((3,3))/(9.0)
+blur_filter2=np.ones((8,8))/(9.0)
+blur_filter3=np.ones((10,10))/(9.0)
+image_blur1 = cv2.filter2D(image,-1,blur_filter1)
+image_blur2 = cv2.filter2D(image,-1,blur_filter2)
+image_blur3 = cv2.filter2D(image,-1,blur_filter3)
+cv2.imshow('babun',image)
+cv2.imshow('babun1',image_blur1)
+cv2.imshow('babun2',image_blur2)
+cv2.imshow('babun3',image_blur3)
+cv2.waitKey()

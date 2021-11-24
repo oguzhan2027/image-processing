@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+image = cv2.imread('orangutan.jpg')
+x_filtre=np.array([[-1,-1,-1],[0,0,0],[1,1,1]])
+y_filtre=np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
+image_x=cv2.filter2D(image,-1,x_filtre)
+image_y=cv2.filter2D(image,-1,y_filtre)
+laplace=cv2.Laplacian(image,cv2.CV_16S,ksize=5)
+laplace2=cv2.Laplacian(image,cv2.CV_32F)
+cv2.imshow('original',image)
+cv2.imshow('yatay yon',image_x)
+cv2.imshow('dikey yon',image_y)
+cv2.imshow('laplace',laplace)
+cv2.imshow('laplace2',laplace2)
+cv2.waitKey(0)
